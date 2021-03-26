@@ -1,0 +1,140 @@
+@font-face {
+    font-family: a_space;
+    src: url(./a_space/regular.otf);
+}
+
+@font-face {
+    font-family: source_sans;
+    src: url(./source_sans/regular.otf);
+}
+
+body {
+    font-family: source_sans !important;
+}
+
+.phoneText {
+    /* opacity: 0; */
+    font-size: 3vw !important;
+    font-weight: bold;
+    color: #f76a00;
+    transform: rotate(90deg);
+}
+
+.mainDesktopText {
+    font-size: 8vw;
+    opacity: 0;
+    font-family: a_space !important;
+    line-height: 1;
+}
+
+.subDesktopText {
+    font-size: 4.15vw;
+    opacity: 0;
+    font-family: a_space !important;
+    line-height: 1;
+}
+
+.sloganText {
+    font-size: 2vw;
+    opacity: 0;
+    color: #f76a00;
+}
+
+.desktop {
+    height: 33vw; 
+    width: 0; 
+    max-width: 50vw;
+    border-style: solid; 
+    border-width: medium; 
+    border-color: black;
+    border-radius: 1rem;
+    flex: .00001;
+    -webkit-animation: flexGrow 1.5s ease forwards;
+    -o-animation: flexGrow 1.5s ease forwards;
+    animation: flexGrow 1.5s ease forwards;
+}
+
+@-webkit-keyframes flexGrow {
+    to {
+      flex: 1;
+    }
+}
+
+@-o-keyframes flexGrow {
+    to {
+        flex: 1;
+    }
+}
+
+@keyframes flexGrow {
+    to {
+        flex: 1;
+    }
+}
+
+.phone {
+    height: 33vw; 
+    width: 18vw; 
+    border-style: solid; 
+    border-width: medium; 
+    border-color: black;
+    border-radius: 1rem;
+    background-color: white;
+    transform: rotate(-90deg);
+}
+
+.phoneHeader {
+    height: 2.5vw;
+    margin-top: .5vw;
+    width: 100%;
+}
+
+.phoneSpeaker {
+    border-style: solid; 
+    border-width: thin; 
+    border-color: black;
+    border-radius: 1rem;
+    background-color: white;
+    height: 40%;
+    width: 25%;
+    margin-left: 12%;
+}
+
+.phoneCamera {
+    border-style: solid; 
+    border-width: thin; 
+    border-color: black;
+    border-radius: 1rem;
+    background-color: white;
+    height: 40%;
+    width: 5%;
+    margin-left: 21.5%;
+}
+
+.desktopScreen {
+    height: 90%; 
+    width: 97%;
+    border-style: solid; 
+    border-width: thin; 
+    border-color: black;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.desktopCamera {
+    height: 4%; 
+    width: 2.5%; 
+    border-style: solid; 
+    border-width: thin; 
+    border-color: black;
+    border-radius: 1rem;
+    margin: 0.5vw;
+    background-color: white;
+}
+
+.imageInScreen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+}
