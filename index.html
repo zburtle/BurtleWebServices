@@ -2,6 +2,7 @@
 <html>
       <head>
         <title>Burtle Web Services - Chatham, IL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <meta name="description" content="Burtle Web Services designs and builds modern websites for modern businesses in the Springfield, IL area.">
         <meta name="keywords" content="website,developer,designer,chatham,illinois,il,springfield,small,business,websites,modern,responsive,mobile,phone,tablet">
         <meta name="robots" content="index, follow">
@@ -15,7 +16,6 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Burtle Web Services">
         <meta name="twitter:description" content="Burtle Web Services designs and builds modern websites for modern businesses in the Springfield, IL area.">
-        <!-- Twitter summary card with large image must be at least 280x150px -->
         <meta name="twitter:image:src" content="https://www.burtlewebservices.com/images/logo.png">
 
         <!-- Open Graph data -->
@@ -32,90 +32,20 @@
         <!-- JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous""></script>
-        <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+        <script src="scripts/main.js"></script>
     </head>
     <body>
       <script>
-        var boxes = [];
-        var total = 0;
-        var ease  = Power1.easeInOut;
-        var group;
-
         $(document).ready(function() {
-          setTimeout(function() { TweenLite.fromTo($('.phone'), .5, { rotation: -90 }, { rotation: 0, marginLeft: '5vw' }) }, 1500);
-          setTimeout(function() { TweenLite.fromTo($('.phoneText'), .5, { rotation: 90 }, { rotation: 0 }) }, 2000);
-          setTimeout(function() { $('.devices').prepend(`<div class="desktop d-flex flex-column align-items-center device">
-                                                          <div class="desktopCamera"></div>
-                                                          <div class="desktopScreen d-flex flex-column justify-content-center align-items-center">
-                                                            <span class="desktopText d-flex flex-column justify-content-center align-items-center">
-                                                              <div class="mainDesktopText">BURTLE</div>
-                                                              <div class="subDesktopText">WEB SERVICES</div>
-                                                              <div class="sloganText">MODERN WEBSITES FOR THE MODERN BUSINESS</div>
-                                                            </span>
-                                                          </div>
-                                                        </div>`)}, 2500);
-          setTimeout(function() { TweenLite.fromTo($('.mainDesktopText'), .5, {  }, { opacity: 1 }) }, 3500);
-          setTimeout(function() { TweenLite.fromTo($('.subDesktopText'), .5, {  }, { opacity: 1 }) }, 3500);
-          setTimeout(function() { TweenLite.fromTo($('.sloganText'), .5, {  }, { opacity: 1 }) }, 4000);
+          if (isLargeScreen()) {
+            startDesktopAnimation();
+          }
         });
-
-        function fadeInPhoneText() {
-          TweenLite.fromTo($('.phoneText'), 1, {opacity: 0}, {opacity: 1, duration: 1});    
-        }
-
-        function fadeInDesktopText() {
-          TweenLite.fromTo($('.desktopText'), 1, {opacity: 0}, {opacity: 1, duration: 1});    
-        }
-
-        function setupDeviceSwap() {
-          var nodes = document.querySelectorAll(".device");
-
-          group = document.querySelector(".devices");
-          total = nodes.length;
-
-          for (var i = 0; i < total; i++) {
-            var node = nodes[i];
-            
-            // Initialize transforms on node
-            TweenLite.set(node, { x: 0 });
-            
-            boxes[i] = {
-              transform: node._gsTransform,
-              x: node.offsetLeft,
-              y: node.offsetTop,
-              node    
-            };
-          } 
-        }
-
-        function swapDevices() {
-          group.classList.toggle("reorder");  
-          
-          for (var i = 0; i < total; i++) {
-            var box = boxes[i];
-            var lastX = box.x;
-            var lastY = box.y;
-            
-            box.x = box.node.offsetLeft;
-            box.y = box.node.offsetTop;
-            
-            // Continue if box hasn't moved
-            if (lastX === box.x && lastY === box.y) continue;
-            
-            // Reversed delta values taking into account current transforms
-            var x = box.transform.x + lastX - box.x;
-            var y = box.transform.y + lastY - box.y;  
-            
-            // Tween to 0 to remove the transforms
-            TweenLite.fromTo(box.node, .5, { x, y }, { x: 0, y: 0, ease });    
-          } 
-        }
       </script>
       <header>
         <div class="container">
-          <nav class="navbar navbar-expand-lg" aria-label="Fifth navbar example">
+          <nav class="navbar navbar-light navbar-expand-md" aria-label="Navigation Bar">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
                 <img src="images/smallLogo.png" alt="" width="128" height="128">
@@ -137,7 +67,30 @@
           </nav>
         </div>
       </header>
-      <div class="container d-flex flex-row justify-content-center devices">
+      <div class="container d-none d-md-flex flex-row justify-content-center devices">
+        <div class="phone d-flex flex-column align-items-center device">
+          <div class="phoneHeader d-flex">
+            <div class="phoneCamera"></div>
+            <div class="phoneSpeaker"></div>
+          </div>
+          <div class="h-100 d-flex justify-content-center">
+            <span class="phoneText d-flex flex-column justify-content-center">
+              <span style="white-space:nowrap">
+                <span class="hiddenUntilDone">Designing and building </span>beautiful<br>
+                <span class="hiddenUntilDone"> websites that are </span>unique<span class="hiddenUntilDone"> and </span><br>
+                responsive<span class="hiddenUntilDone"> for compatibility <br>
+                with all devices.</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="container d-flex d-md-none flex-column justify-content-center align-items-center devices">
+        <div class="mainDesktopText">BURTLE</div>
+        <div class="subDesktopText">WEB SERVICES</div>
+        <div class="sloganText">MODERN WEBSITES FOR THE MODERN BUSINESS</div>
+        <br>
+        <br>
         <div class="phone d-flex flex-column align-items-center device">
           <div class="phoneHeader d-flex">
             <div class="phoneCamera"></div>
@@ -145,9 +98,14 @@
           </div>
           <div class="h-100 d-flex justify-content-center">
             <span class="phoneText d-flex flex-column justify-content-center align-items-center">
-              <div>Beautiful</div>
-              <div>Unique</div>
-              <div>Responsive</div>
+              <span style="white-space:nowrap">
+                Designing and building <br>
+                <span class="orangeText">beautiful</span> websites<br> 
+                that are <span class="orangeText">unique</span> and<br> 
+                <span class="orangeText">responsive</span> for<br> 
+                compatibility with<br>
+                all devices.
+              </span>
             </span>
           </div>
         </div>
