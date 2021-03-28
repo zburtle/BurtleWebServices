@@ -20,3 +20,13 @@ function startDesktopAnimation() {
     setTimeout(function() { TweenLite.fromTo($('.sloganText'), .5, {  }, { opacity: 1 }) }, 4000);
     setTimeout(function() { TweenLite.fromTo($('.hiddenUntilDone'), .5, {  }, { color: 'black' }) }, 4500);
 }
+
+function startMobileAnimation() {
+    setTimeout(function() { TweenLite.to($('#phoneText1'), .5, { opacity: 1 }) }, 500);
+    setTimeout(function() { TweenLite.to($('#phoneText2'), .75, { opacity: 1 }) }, 1250);
+    setTimeout(function() { TweenLite.to($('#phoneText3'), .75, { opacity: 1 }) }, 2000);
+    setTimeout(function() { TweenLite.fromTo($('.phoneSpeaker'), .75, { borderColor: 'rgba(255,255,255,1)' }, { borderColor: 'rgba(0,0,0,1)' }) }, 2750);
+    setTimeout(function() { TweenLite.fromTo($('.phoneCamera'), .75, { borderColor: 'rgba(255,255,255,1)' }, { borderColor: 'rgba(0,0,0,1)' }) }, 2750);
+    setTimeout(function() { TweenLite.fromTo($('.phone'), .75, { borderColor: 'rgba(255,255,255,1)' }, { borderColor: 'rgba(0,0,0,1)' }) }, 2750);
+    setTimeout(function() { TweenLite.fromTo($('.hiddenUntilDone'), .75, {  }, { color: 'black' }) }, 3500);
+}

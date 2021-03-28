@@ -50,6 +50,34 @@ body {
         background-color: white;
         transform: rotate(-90deg);
     }
+
+    .phoneSpeaker {
+        border-style: solid; 
+        border-width: thin; 
+        border-color: black;
+        border-radius: 1rem;
+        background-color: white;
+        height: 40%;
+        width: 25%;
+        margin-left: 12%;
+    }
+    
+    .phoneCamera {
+        border-style: solid; 
+        border-width: thin; 
+        border-color: black;
+        border-radius: 1rem;
+        background-color: white;
+        height: 40%;
+        width: 5%;
+        margin-left: 21.5%;
+    }
+
+    .phoneHeader {
+        height: 2.5vw;
+        margin-top: .5vw;
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 767.98px) {
@@ -78,6 +106,7 @@ body {
 
     .orangeText {
         color: #f76a00;
+        opacity: 0;
     }
 
     .phone {
@@ -85,9 +114,37 @@ body {
         width: 60vw; 
         border-style: solid; 
         border-width: medium; 
-        border-color: black;
+        border-color: rgba(255,255,255,1);
         border-radius: 1rem;
         background-color: white;
+    }
+
+    .phoneSpeaker {
+        border-style: solid; 
+        border-width: thin; 
+        border-color: rgba(255,255,255,1);;
+        border-radius: 1rem;
+        background-color: white;
+        height: 40%;
+        width: 25%;
+        margin-left: 12%;
+    }
+    
+    .phoneCamera {
+        border-style: solid; 
+        border-width: thin; 
+        border-color: rgba(255,255,255,1);;
+        border-radius: 1rem;
+        background-color: white;
+        height: 40%;
+        width: 5%;
+        margin-left: 21.5%;
+    }
+
+    .phoneHeader {
+        height: 2.5vh;
+        margin-top: .5vh;
+        width: 100%;
     }
 }
 
@@ -125,34 +182,6 @@ body {
     to {
         flex: 1;
     }
-}
-
-.phoneHeader {
-    height: 2.5vw;
-    margin-top: .5vw;
-    width: 100%;
-}
-
-.phoneSpeaker {
-    border-style: solid; 
-    border-width: thin; 
-    border-color: black;
-    border-radius: 1rem;
-    background-color: white;
-    height: 40%;
-    width: 25%;
-    margin-left: 12%;
-}
-
-.phoneCamera {
-    border-style: solid; 
-    border-width: thin; 
-    border-color: black;
-    border-radius: 1rem;
-    background-color: white;
-    height: 40%;
-    width: 5%;
-    margin-left: 21.5%;
 }
 
 .desktopScreen {

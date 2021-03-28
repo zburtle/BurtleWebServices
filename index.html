@@ -41,6 +41,9 @@
           if (isLargeScreen()) {
             startDesktopAnimation();
           }
+          else {
+            startMobileAnimation();
+          }
         });
       </script>
       <header>
@@ -99,12 +102,12 @@
           <div class="h-100 d-flex justify-content-center">
             <span class="phoneText d-flex flex-column justify-content-center align-items-center">
               <span style="white-space:nowrap">
-                Designing and building <br>
-                <span class="orangeText">beautiful</span> websites<br> 
-                that are <span class="orangeText">unique</span> and<br> 
-                <span class="orangeText">responsive</span> for<br> 
-                compatibility with<br>
-                all devices.
+                <span class="hiddenUntilDone">Designing and building </span><br>
+                <span class="orangeText" id="phoneText1">beautiful</span><span class="hiddenUntilDone"> websites</span><br> 
+                <span class="hiddenUntilDone">that are </span><span class="orangeText" id="phoneText2">unique</span><span class="hiddenUntilDone"> and</span><br> 
+                <span class="orangeText" id="phoneText3">responsive</span><span class="hiddenUntilDone"> for</span><br> 
+                <span class="hiddenUntilDone">compatibility with<br>
+                all devices.</span>
               </span>
             </span>
           </div>
